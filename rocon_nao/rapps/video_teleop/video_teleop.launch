@@ -6,17 +6,22 @@
   <arg name="application_namespace"/>
   <arg name="simulation" default="false"/>
   <group unless="$(arg simulation)">
+
+    <!-- Walker -->
+    <include file="$(find nao_apps)/launch/walker.launch" />
+
     <!-- Make a slower camera feed available. -->
-    <node pkg="topic_tools" type="relay" name="relay_cmd_vel" output="screen" args="/teleop/cmd_vel /cmd_vel">
+    <node pkg="topic_tools" type="relay" name="relay_cmd_vel" output="screen" args="/teleop/cmd_vel cmd_vel">
       <param name="lazy" value="false"/>
     </node>
 
     <!-- Relay for image -->
-    <!--
-    <node pkg="topic_tools" type="throttle" name="relay_compressed_throttle_image" args="messages camera/rgb/image_rect_color/compressed_throttle 5 /teleop/compressed_image" required="true">
-      <param name="lazy" value="false"/>
+    <node pkg="rocon_python_utils" type="image_converter" name="image_converter" args="compressed" required="true" output="screen">
+      <remap from="image" to="/nao_robot/camera/top/camera/image_raw"/>
+      <remap from="image/compressed" to="/teleop/compressed_image"/>
     </node>
-    -->
+
+    <node pkg="rostopic" type="rostopic"  name="notifier" args="pub /speech std_msgs/String 'walker ready' --once"/>
   </group>
 
   <!-- for gazebo simulation -->

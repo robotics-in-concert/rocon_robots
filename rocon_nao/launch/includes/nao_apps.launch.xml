@@ -2,7 +2,7 @@
   <arg name="nao_ip"        default="$(optenv NAO_IP 127.0.0.1)"/>
   <arg name="nao_port"      default="$(optenv NAO_PORT 9559)"/>
 
-  <arg name="enable_walker"           default="true"/>
+  <arg name="enable_walker"           default="false"/>
   <arg name="enable_pose_manager"     default="true"/>
   <arg name="enable_speech"           default="true"/>
   <arg name="enable_leds"             default="true"/>
