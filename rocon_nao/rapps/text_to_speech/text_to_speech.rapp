@@ -1,0 +1,5 @@
+display:          Text To Speech
+description:      Nao speaks given string
+compatibility:    rocon:/aldebaran_nao
+launch:           text_to_speech.launch
+public_interface: text_to_speech.interface
