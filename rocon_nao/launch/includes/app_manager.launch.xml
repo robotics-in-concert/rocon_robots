@@ -1,6 +1,6 @@
 <launch>
   <arg name="robot_name"        default="$(env NAO_NAME)"         doc="used as a unique identifier and occasionally to preconfigure root namespaces, gateway/zeroconf ids etc."/>
-  <arg name="robot_type"        default="$(env ROBOT_TYPE)"         doc="just in case you are considering a 'variant' and want to make use of this."/>
+  <arg name="robot_type"        default="$(env NAO_TYPE)"         doc="just in case you are considering a 'variant' and want to make use of this."/>
 
   <!-- Rapp Manager --> 
   <arg name="rapp_auto_installation"            default="false"  doc="automatically install rapps from the web (not typically used)"/> <!-- http://wiki.ros.org/rocon_app_manager/Tutorials/indigo/Automatic Rapp Installation -->

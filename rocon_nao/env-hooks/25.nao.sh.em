@@ -1,5 +1,5 @@
 : ${NAO_NAME:=nao}
-: ${NAO_TYPE:=nao}
+: ${NAO_TYPE:=aldebaran_nao}
 : ${NAO_RAPP_PACKAGE_WHITELIST:=[rocon_apps]}
 : ${NAO_RAPP_PACKAGE_BLACKLIST:=[]}
 : ${NAO_INTERACTIONS_LIST:=[]}
