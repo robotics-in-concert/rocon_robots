@@ -1,0 +1,25 @@
+<launch>
+  <arg name="nao_ip"        default="$(optenv NAO_IP 127.0.0.1)"/>
+  <arg name="nao_port"      default="$(optenv NAO_PORT 9559)"/>
+
+  <arg name="enable_walker"           default="true"/>
+  <arg name="enable_pose_manager"     default="true"/>
+  <arg name="enable_speech"           default="true"/>
+  <arg name="enable_leds"             default="true"/>
+
+  <!-- Walker -->
+  <include if="$(arg enable_walker)" file="$(find nao_apps)/launch/walker.launch" />
+
+  <!-- launch pose manager -->
+  <include if="$(arg enable_pose_manager)" file="$(find nao_pose)/launch/pose_manager.launch" >
+    <arg name="nao_ip" value="$(arg nao_ip)" />
+    <arg name="nao_port" value="$(arg nao_port)" />
+  </include>
+
+  <!-- Speech -->
+  <include if="$(arg enable_speech)" file="$(find nao_apps)/launch/speech.launch"/>
+
+  <!-- Leds -->
+  <include if="$(arg enable_leds)" file="$(find nao_apps)/launch/leds.launch"/>
+
+</launch>
