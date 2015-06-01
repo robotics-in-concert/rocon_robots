@@ -1,0 +1,6 @@
+display:          Teleop
+description:      Teleoperate Nao  
+compatibility:    rocon:/aldebaran_nao
+launch:           video_teleop.launch
+icon:             teleop_bubble_icon.png
+parent_name:      rocon_apps/video_teleop

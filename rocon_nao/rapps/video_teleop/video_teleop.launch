@@ -1,0 +1,25 @@
+<launch>
+  <!--  
+    Right now, the android app is hard coded to look for /cmd_vel as the input
+    topic.
+   -->
+  <arg name="application_namespace"/>
+  <arg name="simulation" default="false"/>
+  <group unless="$(arg simulation)">
+    <!-- Make a slower camera feed available. -->
+    <node pkg="topic_tools" type="relay" name="relay_cmd_vel" output="screen" args="/teleop/cmd_vel /cmd_vel">
+      <param name="lazy" value="false"/>
+    </node>
+
+    <!-- Relay for image -->
+    <!--
+    <node pkg="topic_tools" type="throttle" name="relay_compressed_throttle_image" args="messages camera/rgb/image_rect_color/compressed_throttle 5 /teleop/compressed_image" required="true">
+      <param name="lazy" value="false"/>
+    </node>
+    -->
+  </group>
+
+  <!-- for gazebo simulation -->
+  <group if="$(arg simulation)">
+  </group>
+</launch>

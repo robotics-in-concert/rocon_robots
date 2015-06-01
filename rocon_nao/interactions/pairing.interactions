@@ -1,0 +1,61 @@
+#  .-----------------------------------------------------------------.
+# /  .-.                                                         .-.  \
+#|  /   \                                                       /   \  |
+#| |\_.  |              Pairing Interactions                   |    /| |
+#|\|  | /|                                                     |\  | |/|
+#| `---' |                                                     | `---' |
+#|       |                                                     |       | *
+#|       |-----------------------------------------------------|       |
+#\       |                                                     |       /
+# \     /                                                       \     /
+#  `---'                                                         `---'
+
+
+#####################
+#    PC Pairing     #
+#####################
+
+- name: teleop_twist_keyboard/teleop_twist_keyboard.py
+  role: Pairing
+  compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
+  display_name: Keyboard Teleop 
+  description: Teleop the TurleBot using your keyboard
+  max: -1
+
+- name: rocon_teleop
+  role: Pairing
+  compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
+  display_name: Qt Joystick Teleop
+  description: Teleop the TurleBot using the Qt Teleop Joystick
+  max: -1
+  icon:
+    resource_name: turtlebot_rapps/joystick.png
+  remappings:
+    - remap_from: cmd_vel
+      remap_to: /teleop/cmd_vel
+    - remap_from: compressed_image
+      remap_to: /teleop/compressed_image
+  parameters:
+      maximum_linear_velocity: 0.5
+      maximum_angular_velocity: 0.75
+  pairing:
+    rapp: rocon_apps/video_teleop
+    remappings: []
+
+- name: com.github.rosjava.android_apps.teleop.indigo.MainActivity
+  role: Pairing
+  compatibility: rocon:/*/*/indigo/jellybean|kitkat
+  display_name: Android Teleop
+  description: Teleop the TurtleBot using an Android Device
+  max: -1
+  remappings:
+    - remap_from: cmd_vel
+      remap_to: /teleop/cmd_vel
+    - remap_from: compressed_image
+      remap_to: /teleop/compressed_image
+  parameters:
+      maximum_linear_velocity: 0.5
+      maximum_angular_velocity: 0.75
+  pairing:
+    rapp: rocon_apps/video_teleop
+    remappings: []
