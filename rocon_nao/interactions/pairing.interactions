@@ -22,20 +22,18 @@
   description: Teleop the nao using your keyboard
   max: -1
 
-- name: rocon_apps/typing_to_string
+- name: rocon_apps/typing_to_string.launch 
   role: Pairing
   compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
   display_name: Speak Nao!
   description:  Type texts to make nao speak
   max: -1
-  remappings:
-    - remap_from: string
-      remap_to: /text_to_speech/text
+  remappings: []
   pairing:
     rapp: rocon_nao/text_to_speech
-    remappings: []
-
-
+    remappings:
+      - remap_from: /text_to_speech/text
+        remap_to: /string
 
 - name: rocon_teleop
   role: Pairing
