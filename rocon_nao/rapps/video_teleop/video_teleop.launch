@@ -11,7 +11,7 @@
     <include file="$(find nao_apps)/launch/walker.launch" />
 
     <!-- Make a slower camera feed available. -->
-    <node pkg="topic_tools" type="relay" name="relay_cmd_vel" output="screen" args="/teleop/cmd_vel cmd_vel">
+    <node pkg="rocon_python_utils" type="topic_relay" name="relay_cmd_vel" output="screen" args="/teleop/cmd_vel cmd_vel geometry_msgs/Twist">
       <param name="lazy" value="false"/>
     </node>
 
