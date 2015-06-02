@@ -1,0 +1,16 @@
+<launch>
+  <arg name="nao_ip"        default="$(optenv NAO_IP 127.0.0.1)"/>
+  <arg name="nao_port"      default="$(optenv NAO_PORT 9559)"/>
+
+     <!-- Use CPP node by default for naoqi_sensors -->
+  <arg name="force_python" default="true" />
+
+  <include file="$(find rocon_nao)/launch/includes/nao.launch.xml">
+    <arg name="force_python"      value="$(arg force_python)"/>
+  </include>
+
+  <include file="$(find rocon_nao)/launch/includes/nao_apps.launch.xml">
+  </include>
+
+  <include file="$(find rocon_nao)/launch/includes/concert_client.launch.xml"/>
+</launch>
