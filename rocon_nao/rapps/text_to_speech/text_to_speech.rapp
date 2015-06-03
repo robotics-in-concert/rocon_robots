@@ -2,4 +2,4 @@ display:          Text To Speech
 description:      Nao speaks given string
 compatibility:    rocon:/aldebaran_nao
 launch:           text_to_speech.launch
-public_interface: text_to_speech.interface
+parent_name:      rocon_apps/text_to_speech
