@@ -20,6 +20,12 @@
   <run_depend>rocon_app_manager</run_depend>
   <run_depend>rocon_apps</run_depend>
 
+  <!-- image converter dependency -->
+  <run_depend>python-numpy</run_depend>
+  <run_depend>cv2</run_depend>
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
   <export>
     <rocon_app>rapps/video_teleop/video_teleop.rapp</rocon_app>
     <rocon_app>rapps/text_to_speech/text_to_speech.rapp</rocon_app>
